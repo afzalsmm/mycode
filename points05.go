@@ -14,7 +14,7 @@ type User struct {
 
 // a method for type User
 func (p2 *User) newPet() {
-   fmt.Println(*p2, "underlying value of p2 before")
+   fmt.Println(&p2, "underlying value of p2 before")
    p2.Pet = append(p2.Pet, "Fido")
    fmt.Println(*p2, "underlying value of p2 after")
 }
@@ -24,9 +24,9 @@ func main() {
    
    fmt.Println(u, "u before")
    
-   p := &u // Let's make a pointer to u!
+  // p := &u // Let's make a pointer to u!
    
-   p.newPet()
+   u.newPet()
    fmt.Println(u, "u after")                                // Does Anna have a new pet now? Yes!
 }
 

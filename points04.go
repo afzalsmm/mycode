@@ -12,14 +12,23 @@ type User struct {
  Pets []string
 }
 
-func (u User) newPet() {
+func (u User) newPet() User {
  u.Pets = append(u.Pets, "Lucy")                    // Simple function should ensure "Fido" is added to User
- fmt.Println(u)                                     // This user is **NOT** the same user as the one in main()!!
+ fmt.Println(u, &u)                                     // This user is **NOT** the same user as the one in main()!!
+ return u
 }
 
 func main() {
  u := User{Name: "Anna", Pets: []string{"Bailey"}}
- u.newPet()                                         // {Anna [Bailey Fido]} -- This *should* add "Fido" to "u"
- fmt.Println(u)                                     // We **DO NOT** see Fido -- what happened?
+ 
+ var p *User
+
+ p = &u
+ fmt.Println(*p, p)
+
+ n := u.newPet()                                         // {Anna [Bailey Fido]} -- This *should* add "Fido" to "u"
+ fmt.Println(u, &u) 					// We **DO NOT** see Fido -- what happened?
+ 
+ fmt.Println(n, &n)
 }
 
