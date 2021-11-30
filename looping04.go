@@ -28,8 +28,8 @@ func main() {
     // the name of the variable we use in the for-loop is not relevant
     // however, best practice says that all variables should be named in a
     // manner that is easy to understand
-    for pos := range a {
-        fmt.Println("Position", pos)
+    for pos,val := range a[2:] {
+	    fmt.Println("Position, value", pos, val)
     }
 
     
