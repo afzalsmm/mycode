@@ -6,6 +6,7 @@ package main
 import(
     "os"
     "io"
+    "fmt"
 )
     
 func CopyFile(dstName, srcName string) (written int64, err error) {
@@ -28,5 +29,7 @@ func CopyFile(dstName, srcName string) (written int64, err error) {
 func main() {
              // new name of our file    // file we are copying
     CopyFile("/tmp/example-copy1.txt", "/tmp/example-copy.txt")
+
+    fmt.Println(os.TempDir())
 }
 
